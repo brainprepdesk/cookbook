@@ -15,15 +15,15 @@
 **Development**
 
 
-.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/ruff.yml/badge.svg?branch=dev
+.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/ruff.yml/badge.svg
     :target: https://github.com/neurospin-projects/cookbook/actions
     :alt: Ruff Linter
 
-.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/pydoclint.yml/badge.svg?branch=dev
+.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/codespell.yml/badge.svg
     :target: https://github.com/neurospin-projects/cookbook/actions
-    :alt: PyDocLint
+    :alt: Code Spell
 
-.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/documentation.yml/badge.svg?branch=dev
+.. image:: https://github.com/neurospin-projects/cookbook/actions/workflows/documentation.yml/badge.svg
     :target: https://neurospin-deepinsight.github.io/brainprep
     :alt: Documentation Status
 
