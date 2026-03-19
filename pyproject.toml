@@ -38,6 +38,8 @@ dependencies = [
     "torchvision",
     "contrastive",
     "statannotations",
+    "statsmodels",
+    "cryptography",
 ]
 dynamic = ["version"]
 
