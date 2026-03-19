@@ -51,7 +51,7 @@ def plot_surf(textures, titles, meshs, bg_maps, filename=None,
 
     # Surface mesh
     reference_surfs = {}
-    for path, hemi in zip(meshs, ("left", "right")):
+    for path, hemi in zip(meshs, ("left", "right"), strict=True):
         surface = nibabel.load(path)
         vertices, triangles = surface.agg_data()
         reference_surfs[hemi] = (vertices, triangles)
@@ -97,12 +97,13 @@ def plot_surf(textures, titles, meshs, bg_maps, filename=None,
                   wspace=0.0, hspace=0.3, top=0.85)
     for idx_i, name in enumerate(titles):
         data, data_bg = {}, {}
-        for _obj, _bg, hemi in zip(textures[idx_i], bg_maps, ("left", "right")):
-            if not isinstance(_obj, np.ndarray):
-                data[hemi] = nibabel.load(_obj).agg_data()
+        for obj_, bg_, hemi in zip(
+                textures[idx_i], bg_maps, ("left", "right"), strict=True):
+            if not isinstance(obj_, np.ndarray):
+                data[hemi] = nibabel.load(obj_).agg_data()
             else:
-                data[hemi] = _obj
-            data_bg[hemi] = _bg
+                data[hemi] = obj_
+            data_bg[hemi] = bg_
         view_idx, ax = 0, None
         axs = []
         for idx_j in tqdm(range(len(views)), desc=name):

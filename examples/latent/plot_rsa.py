@@ -109,7 +109,7 @@ def plot_mat(key, mat, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
         maximum value on y-axis of figures.
     """
     if ax is None:
-        fig, ax = plt.subplots(1, 1, figsize=figsize, dpi=dpi)
+        _, ax = plt.subplots(1, 1, figsize=figsize, dpi=dpi)
     ax.imshow(mat, aspect="equal", cmap="Reds", vmin=vmin, vmax=vmax)
     ax.set_axis_off()
     if title is None:
@@ -171,14 +171,14 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
         the generated pairwise statistics.
     """
     if ax is None:
-        fig, ax = plt.subplots(1, 1, figsize=figsize, dpi=dpi)
+        _, ax = plt.subplots(1, 1, figsize=figsize, dpi=dpi)
 
     data = rsa[key]
-    _data = {}
+    data_ = {}
     for cond in list(data.keys()):
-        _data.setdefault("model fit (r)", []).extend(data[cond])
-        _data.setdefault("condition", []).extend([cond] * len(data[cond]))
-    data_df = pd.DataFrame.from_dict(_data)
+        data_.setdefault("model fit (r)", []).extend(data[cond])
+        data_.setdefault("condition", []).extend([cond] * len(data[cond]))
+    data_df = pd.DataFrame.from_dict(data_)
 
     sns.stripplot(data=data_df,
                   x="condition",
@@ -197,7 +197,7 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
     for patch in plot.containers[0]:
         fc = patch.get_edgecolor()
         patch.set_edgecolor(mcolors.to_rgba(fc, 1.))
-    locs, labels = plt.yticks()
+    locs, _ = plt.yticks()
     new_y = locs
     new_y = np.linspace(locs[0], locs[-1], 6)
     plt.yticks(new_y, labels=[f"{yy:.2f}" for yy in new_y], fontsize=fontsize,
@@ -209,9 +209,9 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
     for axis in ["top", "bottom", "left", "right"]:
         ax.spines[axis].set_linewidth(line_width)
     xlabels = [item.get_text() for item in ax.get_xticklabels()]
-    _xlabels = ["\n".join(item.split("_")) for item in xlabels]
+    xlabels_ = ["\n".join(item.split("_")) for item in xlabels]
     ax.set_xticks(ax.get_xticks())
-    ax.set_xticklabels(_xlabels, fontsize=fontsize, fontweight=fontweight)
+    ax.set_xticklabels(xlabels_, fontsize=fontsize, fontweight=fontweight)
     x_label = ax.axes.get_xaxis().get_label()
     x_label.set_visible(False)
     ylim = plt.ylim()
@@ -228,15 +228,15 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
             one_sample = ttest_1samp(data[name], 0)
             these_stars = one_sample_stars[
                 max(np.nonzero(one_sample.pvalue < one_sample_thresh)[0])]
-            _xlabels[idx] = f"{_xlabels[idx]}\n({these_stars})"
+            xlabels_[idx] = f"{xlabels_[idx]}\n({these_stars})"
         ax.set_xticks(ax.get_xticks())
-        ax.set_xticklabels(_xlabels, fontsize=fontsize, fontweight=fontweight)
+        ax.set_xticklabels(xlabels_, fontsize=fontsize, fontweight=fontweight)
 
     if report_t or do_pairwise_stars:
         size = len(xlabels)
         pairwise_t = np.zeros((size, size))
         pairwise_p = np.zeros((size, size))
-        _data = dict()
+        data_ = {}
         for idx1, name1 in enumerate(xlabels):
             for idx2, name2 in enumerate(xlabels):
                 n_samples = len(data[name1])
@@ -249,12 +249,12 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
                           f"t({n_samples - 1}) = {tval:.2f} p < .001")
                 pairwise_t[idx1, idx2] = tval
                 pairwise_p[idx1, idx2] = pval
-                _data.setdefault("pair", []).append(
+                data_.setdefault("pair", []).append(
                     f"qname-{key}_src-{name1.replace('_', '-')}_"
                     f"dest-{name2.replace('_', '-')}")
-                _data.setdefault("tval", []).append(tval)
-                _data.setdefault("pval", []).append(pval)
-        pairwise_stat_df = pd.DataFrame.from_dict(_data)
+                data_.setdefault("tval", []).append(tval)
+                data_.setdefault("pval", []).append(pval)
+        pairwise_stat_df = pd.DataFrame.from_dict(data_)
     else:
         pairwise_stat_df = None
 
@@ -264,7 +264,7 @@ def plot_bar(key, rsa, ax=None, figsize=(5, 2), dpi=300, fontsize=16,
         pairwise_sample_stars = np.array(("n.s.", "*", "**", "***"))
         comps = list(combinations(range(len(xlabels)), 2))
         pairs, annotations = [], []
-        for comp_idx, this_comp in enumerate(comps):
+        for this_comp in comps:
             sig_idx = max(np.nonzero(
                 pairwise_p[this_comp[0], this_comp[1]] <
                 pairwise_sample_thresh)[0])
@@ -335,10 +335,10 @@ clinical_scores = [
     "ScanSiteID", "FIQ"]
 scale_scores = [
     "ratio", "ratio", "ordinal", "ratio", "ordinal", "ordinal", "ordinal",
-    "ratio", "ratio", "ratio"]
-model_cmats = dict()
-model_idxs = dict()
-for qname, scale in zip(clinical_scores, scale_scores):
+    "ratio"]
+model_cmats = {}
+model_idxs = {}
+for qname, scale in zip(clinical_scores, scale_scores, strict=True):
     vec = meta_df[qname].values[patients_indices]
     idx = ~np.isnan(vec)
     vec = vec[idx]
@@ -395,10 +395,12 @@ for key in keys_pca:
 
 data = {
     "VAE": cmat_vae[:, patients_indices][..., patients_indices],
-    "CVAE_SL": cmat_cvae_background[:, patients_indices][..., patients_indices],
+    "CVAE_SL": (
+        cmat_cvae_background[:, patients_indices][..., patients_indices]
+    ),
     "CVAE_BG": cmat_cvae_salient[:, patients_indices][..., patients_indices]
 }
-rsa_results, rsa_records = dict(), dict()
+rsa_results, rsa_records = {}, {}
 for qname in clinical_scores + list(keys_pca.keys()):
     for key, smat in data.items():
         res = fit_rsa(smat, model_cmats[qname], idxs=model_idxs[qname])

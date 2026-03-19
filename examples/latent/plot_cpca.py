@@ -103,10 +103,14 @@ print(f"Best alphas: {best_alphas}")
 # %%
 # Let's do the same with out simplified code.
 
-projected_foreground_data, projected_background_data, projected_data = apply_cpca(
-    foreground_data, background_data,
-    np.concatenate((foreground_data, background_data), axis=0), alpha=2.73,
-    n_components=2)
+(projected_foreground_data, projected_background_data,
+ projected_data) = apply_cpca(
+    foreground_data,
+    background_data,
+    np.concatenate((foreground_data, background_data), axis=0),
+    alpha=2.73,
+    n_components=2
+)
 df = pd.DataFrame.from_dict({
     "x": projected_foreground_data[:, 0],
     "y": projected_foreground_data[:, 1],

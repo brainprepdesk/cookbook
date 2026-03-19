@@ -91,7 +91,7 @@ def surf_data_from_cifti(data, axis, surf_name, raw=False):
     Parameters
     ----------
     data : array
-        Full CIFTI data array (time × brain models or vice versa).
+        Full CIFTI data array.
     axis : nibabel.cifti2.BrainModelAxis
         The BrainModelAxis describing how data map to brain structures.
     surf_name : str
@@ -99,7 +99,8 @@ def surf_data_from_cifti(data, axis, surf_name, raw=False):
         "CIFTI_STRUCTURE_CORTEX_LEFT" or "CIFTI_STRUCTURE_CORTEX_RIGHT".
     raw : bool, default False
         If True, return only the raw data rows corresponding to the structure.
-        If False, return a full vertex array with missing vertices filled with 0.
+        If False, return a full vertex array with missing vertices filled
+        with 0.
 
     Returns
     -------
@@ -125,7 +126,7 @@ def surf_data_from_cifti(data, axis, surf_name, raw=False):
                 return data
             vtx_indices = model.vertex
             surf_data = np.zeros(
-                (vtx_indices.max() + 1,) + data.shape[1:], dtype=data.dtype
+                (vtx_indices.max() + 1, *data.shape[1:]), dtype=data.dtype
             )
             surf_data[vtx_indices] = data
             return surf_data

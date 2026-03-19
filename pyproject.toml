@@ -100,7 +100,13 @@ extend-select = [
     "E501", # line too long (226 > 79 characters)
 ]
 ignore = [
+    "D400",     # First line should end with a period
     "D401",     # First line of docstring should be in imperative mood
+    "N806",     # Variable `X` in function should be lowercase
+    "N802",     # Function name `Func` should be lowercase
+    "N803",     # Argument name `X` should be lowercase
+    "N816",     # Variable `study_X` in global scope should not be mixedCase
+    "D103",     # Missing docstring in public function
     "D205",     # 1 blank line required between summary line and description
     "D200",     # One-line docstring should fit on one line
     "D210",     # whitespaces allowed surrounding docstring text
@@ -127,15 +133,3 @@ builtin = "clear,rare,en-GB_to_en-US"
 ignore-words = "./.github/codespellignore.txt"
 skip = "./.git,*.bib,./cookbook/resources/*,./AUTHORS.rst"
 quiet-level = 2
-
-[tool.pydoclint]
-style = "numpy"
-require-return-section-when-returning-nothing = false
-check-arg-order = true
-check-return-types = true
-check-class-attributes = true
-check-style-mismatch = true
-check-arg-defaults = false
-skip-checking-raises = false
-treat-property-methods-as-class-attributes = true
-should-document-private-class-attributes = true

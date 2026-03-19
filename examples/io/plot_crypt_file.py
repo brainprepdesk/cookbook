@@ -6,9 +6,9 @@ Simple functions to encrypt and decrypt files.
 
 It uses Fernet symmetric encryption scheme from the `cryptography` library.
 
-A password is transformed into a Fernet‑compatible key using SHA‑256.
-Note: this is a simplified key‑derivation method and is not as secure
-as PBKDF2HMAC or scrypt for real‑world applications.
+A password is transformed into a Fernet-compatible key using SHA-256.
+Note: this is a simplified key-derivation method and is not as secure
+as PBKDF2HMAC or scrypt for real-world applications.
 """
 
 import base64
@@ -26,10 +26,10 @@ from cryptography.fernet import Fernet
 
 def generate_key(password: str) -> bytes:
     """
-    Generate a Fernet‑compatible key from a password using SHA‑256.
+    Generate a Fernet-compatible key from a password using SHA-256.
 
-    This function hashes the password twice with SHA‑256 and encodes the
-    result in URL‑safe Base64, as required by Fernet.
+    This function hashes the password twice with SHA-256 and encodes the
+    result in URL-safe Base64, as required by Fernet.
 
     Parameters
     ----------
@@ -39,7 +39,7 @@ def generate_key(password: str) -> bytes:
     Returns
     -------
     bytes
-        A 32‑byte Base64‑encoded key suitable for Fernet.
+        A 32-byte Base64-encoded key suitable for Fernet.
 
     Notes
     -----

@@ -5,8 +5,8 @@ Color bundles
 Display the bundles using color.
 
 In this example we load a template fiber bundles and want to color each bundle
-regarding a specific metric. More specifically we will focus on the GeoLab long,
-medium and short templates.
+regarding a specific metric. More specifically we will focus on the GeoLab
+long, medium and short templates.
 
 First we import modules and set global parameters (that can be changed).
 """
@@ -64,7 +64,7 @@ rng = np.random.default_rng()
 cmap = mpl.colormaps["plasma"]
 my_metric = [cmap(val)[:3] for val in rng.random(len(data))]
 scene = window.Scene()
-for idx, (name, bundle) in enumerate(data.items()):
+for idx, bundle in enumerate(data.values()):
     stream_actor = actor.line(bundle, colors=my_metric[idx], linewidth=0.1)
     scene.add(stream_actor)
 scene.set_camera(
@@ -109,14 +109,14 @@ images = [
     for name in ["bundles2", "bundles3", "bundles1"]
 ]
 images = [im.crop((100, 100, 500, 500)) for im in images]
-widths, heights = zip(*(im.size for im in images))
+widths, heights = zip(*(im.size for im in images), strict=True)
 total_width = sum(widths)
 max_height = max(heights)
 new_im = Image.new("RGB", (total_width, max_height))
 x_offset = 0
 for im in images:
-  new_im.paste(im, (x_offset, 0))
-  x_offset += im.size[0]
+    new_im.paste(im, (x_offset, 0))
+    x_offset += im.size[0]
 new_im.save(out_dir / "bundles.png")
 plt.imshow(new_im)
 ax = plt.gca()
