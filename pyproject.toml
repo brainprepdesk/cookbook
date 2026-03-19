@@ -36,6 +36,8 @@ dependencies = [
     "anndata",
     "torch",
     "torchvision",
+    "contrastive",
+    "statannotations",
 ]
 dynamic = ["version"]
 

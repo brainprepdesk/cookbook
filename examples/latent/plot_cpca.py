@@ -101,7 +101,7 @@ print(f"Best alphas: {best_alphas}")
 
 
 # %%
-# Let's do the same with out simplified code.
+# Let's do the same with our simplified code.
 
 (projected_foreground_data, projected_background_data,
  projected_data) = apply_cpca(
