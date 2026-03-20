@@ -111,17 +111,24 @@ def plot_surf(textures, titles, meshs, bg_maps, filename=None,
                 ax = fig.add_subplot(gs[idx_i, view_idx], zorder=20,
                                      projection="3d")
                 axs.append(ax)
+                transform = None
             texture = data[hemis[idx_j]]
-            texture = np.abs(texture * 100).astype(int)
             vmin = min([0, min(texture)])
             vmax = max(texture)
             vertices, triangles = reference_surfs[hemis[idx_j]]
-            plotting.plot_surf_roi(
+            plotting.plot_surf(
                 (vertices + offsets[idx_j], triangles),
-                roi_map=texture,
-                hemi=hemis[idx_j], view=views[idx_j], darkness=.7,
+                surf_map=texture,
+                hemi=hemis[idx_j], view=views[idx_j],
                 cmap="gist_ncar", vmin=vmin, vmax=vmax, axes=ax,
-                bg_map=data_bg[hemis[idx_j]], alpha=0.95)
+                bg_map=data_bg[hemis[idx_j]], alpha=0.95,
+                colorbar=False, threshold=0.001)
+            if dtypes[idx_j] == "combo-2":
+                for coll in ax.collections[-1:]:
+                    coll._vec += np.array([[-45], [0], [0], [0]])
+            elif dtypes[idx_j] == "combo-1":
+                for coll in ax.collections[-1:]:
+                    coll._vec += np.array([[45], [0], [0], [0]])
             for spine in ax.spines.values():
                 spine.set_visible(False)
             if idx_j == 0:
@@ -135,8 +142,6 @@ def plot_surf(textures, titles, meshs, bg_maps, filename=None,
         if config != "fsaverageflat":
             axs[1].view_init(elev=90, azim=270)
             axs[4].view_init(elev=270, azim=90)
-            axs[1].dist = 8
-            axs[4].dist = 8
 
     # Save the figure in the desired format if enabled
     if filename is not None:
