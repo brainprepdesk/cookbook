@@ -1,0 +1,44 @@
+
+
+.. _sphx_glr_auto_examples_genomic:
+
+Genomic Analysis
+----------------
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Eamplify MOSTest approach which performs a multi-phenotype GWAS.">
+
+.. only:: html
+
+  .. image:: /auto_examples/genomic/images/thumb/sphx_glr_plot_mostest_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_genomic_plot_mostest.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">MOSTest</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/genomic/plot_mostest
+

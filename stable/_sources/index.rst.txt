@@ -1,0 +1,119 @@
+cookbook
+========
+
+
+
+Neuroimaging research brings together complex data, diverse analytical tools,
+and rapidly evolving computational methods. This cookbook is designed as a
+practical companion for navigating that landscape. It gathers concise,
+reusable code examples that illustrate how to perform common tasks across MRI,
+fMRI, diffusion imaging, and genomics.
+
+A guiding principle of this collection is that **sharing code accelerates
+development**. Many researchers face the same challenges: loading and
+organizing datasets, building preprocessing pipelines, implementing
+statistical models, or visualizing results. By pooling solutions in a
+shared, structured resource, the community reduces duplicated effort,
+shortens development cycles, and frees researchers to focus on scientific
+questions rather than re‑implementing boilerplate.
+
+The cookbook is organized into categories. All examples follow the
+Sphinx‑Gallery format to ensure consistency, readability, and compatibility
+with modern documentation systems.
+
+This resource is intended to evolve with the community. Contributions-whether
+new recipes, improvements to existing ones, or entirely new categories-help
+keep the cookbook relevant and diverse. By sharing methods openly and
+collaboratively, the neuroimaging community strengthens its collective
+ability to innovate, teach, and conduct rigorous, transparent research.
+
+
+
+.. grid::
+
+    .. grid-item-card:: :fas:`rocket` Quickstart
+        :link: quickstart
+        :link-type: ref
+        :columns: 12 12 4 4
+        :class-card: sd-shadow-md
+        :class-title: sd-text-primary
+        :margin: 2 2 0 0
+
+        Get started with cookbook
+
+    .. grid-item-card:: :fas:`th` Examples
+        :link: auto_examples/index.html
+        :link-type: url
+        :columns: 12 12 4 4
+        :class-card: sd-shadow-md
+        :class-title: sd-text-primary
+        :margin: 2 2 0 0
+
+        Discover functionalities by reading examples
+
+    .. grid-item-card:: :fas:`book` User guide
+        :link: user_guide
+        :link-type: ref
+        :columns: 12 12 4 4
+        :class-card: sd-shadow-md
+        :class-title: sd-text-primary
+        :margin: 2 2 0 0
+
+        Learn about cookbook
+
+
+Featured works
+--------------
+
+.. raw:: html
+
+    <br/>
+    <div class="sphx-glr-thumbnails">
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="How to use contrastive PCA…">
+
+.. only:: html
+
+  .. image:: /auto_examples/latent/images/thumb/sphx_glr_plot_cpca_thumb.png
+    :alt: Latent example
+
+  :ref:`sphx_glr_auto_examples_latent_plot_cpca.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Latent example</div>
+    </div>
+
+
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+   :includehidden:
+   :titlesonly:
+
+   quickstart.md
+   auto_examples/index.rst
+   user_guide/index.rst
+   modules/index.rst
+   modules/search.rst
+
+.. toctree::
+   :hidden:
+   :caption: Development
+
+   contributing.rst
+   ci.rst
+   maintenance.rst
+   whats_new.rst
+   authors.rst
+   license.rst
+   versions.rst

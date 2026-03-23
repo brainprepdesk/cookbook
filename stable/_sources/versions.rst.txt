@@ -1,0 +1,12 @@
+.. _versions:
+
+========
+Versions
+========
+
+Web-based documentation is available for versions listed below:
+
+
+* `dev documentation <https://neurospin-projects.github.io/cookbook/dev>`_
+
+* `stable documentation <https://neurospin-projects.github.io/cookbook/stable>`_

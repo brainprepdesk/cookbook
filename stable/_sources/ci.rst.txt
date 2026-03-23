@@ -1,0 +1,89 @@
+.. _continuous integration:
+
+
+Continuous integration
+======================
+
+Continuous Integration (CI) tests are implemented via GithHub workflows.
+
+
+Documentation build and deploy
+------------------------------
+
+.. using a mermaid flowchart: https://mermaid.js.org/syntax/flowchart.html
+
+.. mermaid:: mermaid/doc_deploy.mmd
+
+The development docs are built using GitHub Actions.
+
+The workflow ``.github/workflows/documentation.yml`` builds the doc and
+deploy it on the ``dev`` (respectively ``main``).
+
+On pull-request a successful build of the doc by
+``.github/workflows/documentation.yml`` has no trigger.
+
+
+GitHub Actions Specification
+----------------------------
+
+
+
+codespell.yml
+^^^^^^^^^^^^^
+
+Workflow file: `codespell.yml <https://github.com/nilearn/nilearn/blob/main/.github/workflows/codespell.yml>`_
+
+Workflow to check common misspellings in text files.
+
+To run this check locally from the repository folder:
+
+.. code-block:: bash
+
+  $ codespell --toml pyproject.toml examples
+
+
+documentation.yml
+^^^^^^^^^^^^^^^^^
+
+Workflow file: `documentation.yml <https://github.com/nilearn/nilearn/blob/main/.github/workflows/documentation.yml>`_
+
+Workflow to build doc, upload it as artifact, and deploy it for the
+master, main and dev branches.
+
+To run this check locally from the `doc` folder:
+
+.. code-block:: bash
+
+  $ sphinxdoc -v 2 -p $MODULE_DIR -n cookbook -o $MODULE_DIR/doc
+  $ cd $MODULE_DIR/doc
+  $ make html-strict
+
+
+release-documentation.yml
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Workflow file: `release-documentation.yml <https://github.com/nilearn/nilearn/blob/main/.github/workflows/release-documentation.yml>`_
+
+Workflow to build doc, and deploy it using the version as a subdomain.
+
+To run this check locally from the `doc` folder:
+
+.. code-block:: bash
+
+  $ sphinxdoc -v 2 -p $MODULE_DIR -n cookbook -o $MODULE_DIR/doc
+  $ cd $MODULE_DIR/doc
+  $ make html-strict
+
+
+ruff.yml
+^^^^^^^^
+
+Workflow file: `ruff.yml <https://github.com/nilearn/nilearn/blob/main/.github/workflows/ruff.yml>`_
+
+Workflow to check code format.
+
+To run this check locally from the repository folder:
+
+.. code-block:: bash
+
+  $ ruff check examples

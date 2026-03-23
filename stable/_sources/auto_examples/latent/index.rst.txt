@@ -1,0 +1,63 @@
+
+
+.. _sphx_glr_auto_examples_latent:
+
+Latent variable methods
+-----------------------
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbnails">
+
+.. thumbnail-parent-div-open
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Perform constrastive PCA (cPCA).">
+
+.. only:: html
+
+  .. image:: /auto_examples/latent/images/thumb/sphx_glr_plot_cpca_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_latent_plot_cpca.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Contrastive PCA (cPCA)</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Perform Representational Similarity Analysis (RSA).">
+
+.. only:: html
+
+  .. image:: /auto_examples/latent/images/thumb/sphx_glr_plot_rsa_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_latent_plot_rsa.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Representational Similarity Analysis (RSA)</div>
+    </div>
+
+
+.. thumbnail-parent-div-close
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_examples/latent/plot_cpca
+   /auto_examples/latent/plot_rsa
+
