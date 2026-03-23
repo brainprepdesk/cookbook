@@ -53,7 +53,7 @@ jobs:
             echo "DEPLOY_TYPE=pr" >> $GITHUB_OUTPUT ;;
         esac
     - name: Checkout repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@v6
       with:
         fetch-depth: 0
     - name: Set up Python
@@ -88,10 +88,10 @@ jobs:
         DIR=$(pwd)
         cd $DIR/doc
         echo "Documentation folder: $DIR/doc"
-        make html-noplot
+        make html-strict
         cd $DIR
     - name: Upload documentation as an artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       env:
         DEPLOY_TYPE: ${{ steps.deploy-type.outputs.DEPLOY_TYPE }}
       with: 
