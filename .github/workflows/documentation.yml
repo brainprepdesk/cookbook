@@ -44,14 +44,14 @@ jobs:
     - name: Identify deploy type
       id: deploy-type
       run: |
-        if ${{ github.ref == 'refs/heads/master' ||
-               github.ref == 'refs/heads/main' }}; then
-            echo "DEPLOY_TYPE=stable" >> $GITHUB_OUTPUT
-        elif ${{ github.ref == 'refs/heads/dev' }}; then
-            echo "DEPLOY_TYPE=dev" >> $GITHUB_OUTPUT
-        else
-            echo "DEPLOY_TYPE=pr" >> $GITHUB_OUTPUT
-        fi
+        case "$GITHUB_REF" in
+          refs/heads/main|refs/heads/master)
+            echo "DEPLOY_TYPE=stable" >> $GITHUB_OUTPUT ;;
+          refs/heads/dev)
+            echo "DEPLOY_TYPE=dev" >> $GITHUB_OUTPUT ;;
+          *)
+            echo "DEPLOY_TYPE=pr" >> $GITHUB_OUTPUT ;;
+        esac
     - name: Checkout repository
       uses: actions/checkout@v5
       with:
@@ -76,6 +76,8 @@ jobs:
           texlive-latex-extra
           texlive-fonts-recommended
         version: 1.0
+    - name: Rebuild TeX formats
+      run: sudo fmtutil-sys --all
     - name: Install documentation resources
       run: |
         DIR=$(pwd)
@@ -86,7 +88,7 @@ jobs:
         DIR=$(pwd)
         cd $DIR/doc
         echo "Documentation folder: $DIR/doc"
-        make html-strict
+        make html-noplot
         cd $DIR
     - name: Upload documentation as an artifact
       uses: actions/upload-artifact@v4

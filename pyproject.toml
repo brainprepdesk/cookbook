@@ -35,8 +35,6 @@ dependencies = [
     "dipy",
     "fury",
     "anndata",
-    "torch",
-    "torchvision",
     "contrastive",
     "statannotations",
     "statsmodels",
