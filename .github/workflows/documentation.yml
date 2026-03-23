@@ -66,16 +66,15 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --progress-bar off ".[ci,doc]"
     - name: Install apt packages
-      uses: awalsh128/cache-apt-pkgs-action@latest
-      with:
-        packages: >
-          dvipng
-          texlive-base
-          texlive-latex-base
-          texlive-latex-recommended
-          texlive-latex-extra
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          dvipng \
+          texlive-base \
+          texlive-latex-base \
+          texlive-latex-recommended \
+          texlive-latex-extra \
           texlive-fonts-recommended
-        version: 1.0
     - name: Rebuild TeX formats
       run: sudo fmtutil-sys --all
     - name: Install documentation resources
