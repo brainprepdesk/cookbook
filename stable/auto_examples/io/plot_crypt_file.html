@@ -342,7 +342,7 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="c1"># -------------------------------------------------------------------------</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_key</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">password</span></a><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Generate a Fernet-compatible key from a password using SHA-256.</span>
 
@@ -364,7 +364,7 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="sd">    This is a simplified key derivation function. For stronger security,</span>
 <span class="sd">    consider using PBKDF2HMAC with a salt and many iterations.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">digest</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/hashlib.html#hashlib.sha256" title="hashlib.sha256" class="sphx-glr-backref-module-hashlib sphx-glr-backref-type-py-function"><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span></a><span class="p">(</span><span class="n">password</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="n">digest</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/hashlib.html#hashlib.sha256" title="hashlib.sha256" class="sphx-glr-backref-module-hashlib sphx-glr-backref-type-py-function"><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">password</span></a><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
     <span class="k">return</span> <a href="https://docs.python.org/3/library/base64.html#base64.urlsafe_b64encode" title="base64.urlsafe_b64encode" class="sphx-glr-backref-module-base64 sphx-glr-backref-type-py-function"><span class="n">base64</span><span class="o">.</span><span class="n">urlsafe_b64encode</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/hashlib.html#hashlib.sha256" title="hashlib.sha256" class="sphx-glr-backref-module-hashlib sphx-glr-backref-type-py-function"><span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span></a><span class="p">(</span><span class="n">digest</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
 
 
@@ -372,7 +372,7 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="c1"># File encryption</span>
 <span class="c1"># -------------------------------------------------------------------------</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">encrypt_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">encrypt_file</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Encrypt a file in place using the Fernet algorithm.</span>
 
@@ -397,13 +397,13 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="sd">      without the correct key.</span>
 <span class="sd">    - If you need to preserve the original file, copy it before encrypting.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">)</span>
 
-    <span class="n">original</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
+    <span class="n">original</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
 
     <span class="n">encrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">encrypt</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
 
-    <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">fernet</span>
 
@@ -412,7 +412,7 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="c1"># File decryption</span>
 <span class="c1"># -------------------------------------------------------------------------</span>
 
-<span class="k">def</span><span class="w"> </span><span class="nf">decrypt_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">decrypt_file</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">:</span> <span class="nb">bytes</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Decrypt a file in place using the Fernet algorithm.</span>
 
@@ -436,9 +436,9 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
 <span class="sd">      encrypted file unchanged.</span>
 <span class="sd">    - The decrypted content overwrites the encrypted file.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">encrypted</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
+    <span class="n">encrypted</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
 
-    <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="n">fernet</span> <span class="o">=</span> <span class="n">Fernet</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="n">decrypted</span> <span class="o">=</span> <span class="n">fernet</span><span class="o">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted</span><span class="p">)</span>
@@ -446,41 +446,48 @@ as PBKDF2HMAC or scrypt for real-world applications.</p>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: invalid key. File was not decrypted.&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
-    <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">decrypted</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">decrypted</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example usage of the encryption functions</p>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create a temporary file with known content</span>
-<span class="n">original_content</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, this is a test message.&quot;</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">original_content</span></a> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;Hello, this is a test message.&quot;</span>
 <span class="k">with</span> <a href="https://docs.python.org/3/library/tempfile.html#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile" class="sphx-glr-backref-module-tempfile sphx-glr-backref-type-py-function"><span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span></a><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
-    <span class="n">file_path</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">name</span>
-    <span class="n">tmp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">original_content</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temporary file created at: </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">tmp</span><span class="o">.</span><span class="n">name</span></a>
+    <span class="n">tmp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">original_content</span></a><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temporary file created at: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># 2. Generate a key from a password</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;my_password&quot;</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">generate_key</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">password</span></a> <span class="o">=</span> <span class="s2">&quot;my_password&quot;</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a> <span class="o">=</span> <span class="n">generate_key</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">password</span></a><span class="p">)</span>
 
 <span class="c1"># 3. Encrypt the file</span>
-<span class="n">encrypt_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">encrypt_file</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File encrypted.&quot;</span><span class="p">)</span>
 
 <span class="c1"># 4. Decrypt the file</span>
-<span class="n">decrypt_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="n">decrypt_file</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File decrypted.&quot;</span><span class="p">)</span>
 
 <span class="c1"># 5. Read back the content and verify equality</span>
-<span class="n">final_content</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
-<span class="k">if</span> <span class="n">final_content</span> <span class="o">==</span> <span class="n">original_content</span><span class="p">:</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">final_content</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>
+<span class="k">if</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">final_content</span></a> <span class="o">==</span> <a href="https://docs.python.org/3/library/stdtypes.html#bytes" title="builtins.bytes" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">original_content</span></a><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Success: decrypted content matches the original.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: decrypted content does NOT match the original.&quot;</span><span class="p">)</span>
 
 <span class="c1"># 6. Clean up</span>
-<a href="https://docs.python.org/3/library/os.html#os.remove" title="os.remove" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">remove</span></a><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/os.html#os.remove" title="os.remove" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">remove</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">file_path</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Temporary file created at: /tmp/tmpc8ax8pb_
+File encrypted.
+File decrypted.
+Success: decrypted content matches the original.
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.266 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  118 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-io-plot-crypt-file-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/799e088cd96b6a4e259ef4e7b2188bfb/plot_crypt_file.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_crypt_file.ipynb</span></code></a></p>

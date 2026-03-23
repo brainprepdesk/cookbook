@@ -40,6 +40,12 @@ Import
     from contrastive import CPCA
 
 
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 20-24
 
 Utils
@@ -69,6 +75,12 @@ Let's define some functions.
         Tc = T - np.mean(T, axis=0)
         T_reduce = Tc.dot(v_top)
         return X_reduced, Y_reduced, T_reduce
+
+
+
+
+
+
 
 
 
@@ -121,6 +133,19 @@ Let's create synthetic data.
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    foreground: (400, 30)
+    background: (400, 30)
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 87-91
 
 cPCA
@@ -142,6 +167,24 @@ Let's perform cPCA with the original code.
         active_labels=foreground_labels, return_alphas=True)
     print(f"Embeddings: {[item.shape for item in projected_data]}")
     print(f"Best alphas: {best_alphas}")
+
+
+
+
+
+.. image-sg:: /auto_examples/latent/images/sphx_glr_plot_cpca_001.png
+   :alt: Alpha=0.0, Alpha=0.52, Alpha=2.73, Alpha=94.27
+   :srcset: /auto_examples/latent/images/sphx_glr_plot_cpca_001.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Embeddings: [(400, 2), (400, 2), (400, 2), (400, 2)]
+    Best alphas: [ 0.    0.52  2.73 94.27]
+
 
 
 
@@ -183,7 +226,35 @@ Let's do the same with our simplified code.
 
 
 
-**Estimated memory usage:**  0 MB
+
+
+.. rst-class:: sphx-glr-horizontal
+
+
+    *
+
+      .. image-sg:: /auto_examples/latent/images/sphx_glr_plot_cpca_002.png
+         :alt: plot cpca
+         :srcset: /auto_examples/latent/images/sphx_glr_plot_cpca_002.png
+         :class: sphx-glr-multi-img
+
+    *
+
+      .. image-sg:: /auto_examples/latent/images/sphx_glr_plot_cpca_003.png
+         :alt: plot cpca
+         :srcset: /auto_examples/latent/images/sphx_glr_plot_cpca_003.png
+         :class: sphx-glr-multi-img
+
+
+
+
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (0 minutes 1.696 seconds)
+
+**Estimated memory usage:**  122 MB
 
 
 .. _sphx_glr_download_auto_examples_latent_plot_cpca.py:

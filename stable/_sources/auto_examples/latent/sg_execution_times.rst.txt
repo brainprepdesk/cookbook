@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.000** total execution time for 2 files **from auto_examples/latent**:
+**01:47.490** total execution time for 2 files **from auto_examples/latent**:
 
 .. container::
 
@@ -32,9 +32,9 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_latent_plot_cpca.py` (``plot_cpca.py``)
-     - 00:00.000
-     - 0.0
    * - :ref:`sphx_glr_auto_examples_latent_plot_rsa.py` (``plot_rsa.py``)
-     - 00:00.000
-     - 0.0
+     - 01:45.794
+     - 5217.3
+   * - :ref:`sphx_glr_auto_examples_latent_plot_cpca.py` (``plot_cpca.py``)
+     - 00:01.696
+     - 121.6

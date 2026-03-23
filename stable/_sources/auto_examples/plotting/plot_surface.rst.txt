@@ -203,6 +203,12 @@ Display a custom texture on the cortical surface.
 
 
 
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 183-185
 
 First start by loading the fsaverage cortical surface, curvature texture, and
@@ -216,6 +222,43 @@ Destrieux labels:
     data = fetch_surf_fsaverage(data_dir="/tmp")
     atlas = fetch_atlas_surf_destrieux(data_dir="/tmp")
     curv_arr = nibabel.load(data["curv_left"]).agg_data()
+
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    [fetch_atlas_surf_destrieux] Added README.md to /tmp
+    [fetch_atlas_surf_destrieux] Dataset created in /tmp/destrieux_surface
+    [fetch_atlas_surf_destrieux] Downloading data from 
+    https://www.nitrc.org/frs/download.php/9343/lh.aparc.a2009s.annot ...
+    [fetch_atlas_surf_destrieux]  ...done. (0 seconds, 0 min)
+
+    [fetch_atlas_surf_destrieux] Downloading data from 
+    https://www.nitrc.org/frs/download.php/9342/rh.aparc.a2009s.annot ...
+    [fetch_atlas_surf_destrieux]  ...done. (0 seconds, 0 min)
+
+    /home/runner/work/cookbook/cookbook/examples/plotting/plot_surface.py:187: UserWarning: 
+    The following regions are present in the atlas look-up table,
+    but missing from the atlas image:
+
+     index    name
+         0 Unknown
+
+      atlas = fetch_atlas_surf_destrieux(data_dir="/tmp")
+    /home/runner/work/cookbook/cookbook/examples/plotting/plot_surface.py:187: UserWarning: 
+    The following regions are present in the atlas look-up table,
+    but missing from the atlas image:
+
+     index    name
+         0 Unknown
+
+      atlas = fetch_atlas_surf_destrieux(data_dir="/tmp")
+
 
 
 
@@ -243,6 +286,25 @@ Note that the average function selects the 10 first regions:
 
 
 
+
+
+.. image-sg:: /auto_examples/plotting/images/sphx_glr_plot_surface_001.png
+   :alt: plot surface
+   :srcset: /auto_examples/plotting/images/sphx_glr_plot_surface_001.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    curv:   0%|          | 0/8 [00:00<?, ?it/s]    curv:  25%|██▌       | 2/8 [00:00<00:00, 17.21it/s]    curv:  62%|██████▎   | 5/8 [00:00<00:00, 22.18it/s]    curv: 100%|██████████| 8/8 [00:00<00:00, 23.67it/s]    curv: 100%|██████████| 8/8 [00:00<00:00, 22.75it/s]
+    averaged curv:   0%|          | 0/8 [00:00<?, ?it/s]    averaged curv:  38%|███▊      | 3/8 [00:00<00:00, 24.79it/s]    averaged curv:  75%|███████▌  | 6/8 [00:00<00:00, 23.48it/s]    averaged curv: 100%|██████████| 8/8 [00:00<00:00, 24.32it/s]
+
+    <Figure size 1500x700 with 12 Axes>
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 209-210
 
 And also do the same plot on the flat mesh:
@@ -266,7 +328,31 @@ And also do the same plot on the flat mesh:
     # plotting.show()
 
 
-**Estimated memory usage:**  0 MB
+
+
+.. image-sg:: /auto_examples/plotting/images/sphx_glr_plot_surface_002.png
+   :alt: plot surface
+   :srcset: /auto_examples/plotting/images/sphx_glr_plot_surface_002.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    curv:   0%|          | 0/2 [00:00<?, ?it/s]    curv:  50%|█████     | 1/2 [00:00<00:00,  8.84it/s]    curv: 100%|██████████| 2/2 [00:00<00:00, 11.88it/s]
+    averaged curv:   0%|          | 0/2 [00:00<?, ?it/s]    averaged curv: 100%|██████████| 2/2 [00:00<00:00, 18.34it/s]    averaged curv: 100%|██████████| 2/2 [00:00<00:00, 18.27it/s]
+
+    <Figure size 1500x700 with 4 Axes>
+
+
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (0 minutes 29.658 seconds)
+
+**Estimated memory usage:**  401 MB
 
 
 .. _sphx_glr_download_auto_examples_plotting_plot_surface.py:

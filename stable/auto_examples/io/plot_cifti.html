@@ -330,6 +330,17 @@ to download the full example code.</p>
 - a left-hemisphere surface data array,
 - a right-hemisphere surface data array.</p>
 <p>These functions rely on NiBabel’s CIFTI-2 API.</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Downloading...
+Saved: /tmp/sample.dtseries.nii
+CIFTI decomposition summary:
+- volume: (48, 64, 48, 1)
+- left cortex surface:  (32492, 1)
+- right cortex surface: (32492, 1)
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">nibabel</span>
@@ -380,14 +391,14 @@ to download the full example code.</p>
     <span class="n">axes</span> <span class="o">=</span> <span class="p">[</span><span class="n">hdr</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">ndim</span><span class="p">)]</span>
     <span class="n">select_axes</span> <span class="o">=</span> <span class="p">[</span>
         <span class="n">axis</span> <span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">axes</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.cifti2.html#nibabel.cifti2.cifti2_axes.BrainModelAxis" title="nibabel.cifti2.cifti2_axes.BrainModelAxis" class="sphx-glr-backref-module-nibabel-cifti2-cifti2_axes sphx-glr-backref-type-py-class"><span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span></a><span class="p">)</span>
     <span class="p">]</span>
     <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">select_axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span>
         <span class="s2">&quot;Expected exactly one BrainModelAxis in CIFTI file.&quot;</span>
     <span class="p">)</span>
     <span class="n">brain_models</span> <span class="o">=</span> <span class="n">select_axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="n">vol</span> <span class="o">=</span> <span class="n">volume_from_cifti</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">brain_models</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
+    <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a> <span class="o">=</span> <span class="n">volume_from_cifti</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">brain_models</span><span class="p">,</span> <span class="n">raw</span><span class="p">)</span>
     <span class="n">left</span> <span class="o">=</span> <span class="n">surf_data_from_cifti</span><span class="p">(</span>
         <span class="n">data</span><span class="p">,</span> <span class="n">brain_models</span><span class="p">,</span> <span class="s2">&quot;CIFTI_STRUCTURE_CORTEX_LEFT&quot;</span><span class="p">,</span> <span class="n">raw</span>
     <span class="p">)</span>
@@ -395,7 +406,7 @@ to download the full example code.</p>
         <span class="n">data</span><span class="p">,</span> <span class="n">brain_models</span><span class="p">,</span> <span class="s2">&quot;CIFTI_STRUCTURE_CORTEX_RIGHT&quot;</span><span class="p">,</span> <span class="n">raw</span>
     <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">vol</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
+    <span class="k">return</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span>
 
 
 <span class="c1"># -------------------------------------------------------------------------</span>
@@ -435,7 +446,7 @@ to download the full example code.</p>
 <span class="sd">    See https://nbviewer.org/github/neurohackademy/nh2020-curriculum/blob/</span>
 <span class="sd">    master/we-nibabel-markiewicz/NiBabel.ipynb</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.cifti2.html#nibabel.cifti2.cifti2_axes.BrainModelAxis" title="nibabel.cifti2.cifti2_axes.BrainModelAxis" class="sphx-glr-backref-module-nibabel-cifti2-cifti2_axes sphx-glr-backref-type-py-class"><span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span></a><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data_indices</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">axis</span><span class="o">.</span><span class="n">iter_structures</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="n">surf_name</span><span class="p">:</span>
@@ -480,7 +491,7 @@ to download the full example code.</p>
 <span class="sd">    See https://nbviewer.org/github/neurohackademy/nh2020-curriculum/blob/</span>
 <span class="sd">    master/we-nibabel-markiewicz/NiBabel.ipynb</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <a href="https://nipy.org/nibabel/reference/nibabel.cifti2.html#nibabel.cifti2.cifti2_axes.BrainModelAxis" title="nibabel.cifti2.cifti2_axes.BrainModelAxis" class="sphx-glr-backref-module-nibabel-cifti2-cifti2_axes sphx-glr-backref-type-py-class"><span class="n">nibabel</span><span class="o">.</span><span class="n">cifti2</span><span class="o">.</span><span class="n">BrainModelAxis</span></a><span class="p">)</span>
 
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="n">axis</span><span class="o">.</span><span class="n">volume_mask</span><span class="p">]</span>
 
@@ -493,32 +504,33 @@ to download the full example code.</p>
     <span class="p">)</span>
     <span class="n">vol_data</span><span class="p">[</span><span class="n">vox_indices</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
 
-    <span class="k">return</span> <span class="n">nibabel</span><span class="o">.</span><span class="n">Nifti1Image</span><span class="p">(</span><span class="n">vol_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">.</span><span class="n">affine</span><span class="p">)</span>
+    <span class="k">return</span> <a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class"><span class="n">nibabel</span><span class="o">.</span><span class="n">Nifti1Image</span></a><span class="p">(</span><span class="n">vol_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">.</span><span class="n">affine</span><span class="p">)</span>
 
 
 <span class="c1"># Public URL containing a CIFTI file</span>
-<span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">url</span></a> <span class="o">=</span> <span class="p">(</span>
     <span class="s2">&quot;https://raw.githubusercontent.com/GrattonLab/SeitzmanGratton-2019-PNAS/&quot;</span>
     <span class="s2">&quot;master/WashU120_groupNetworks.dtseries.nii&quot;</span>
 <span class="p">)</span>
-<span class="n">cifti_path</span> <span class="o">=</span> <span class="s2">&quot;/tmp/sample.dtseries.nii&quot;</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cifti_path</span></a> <span class="o">=</span> <span class="s2">&quot;/tmp/sample.dtseries.nii&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading...&quot;</span><span class="p">)</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">url</span></a><span class="p">)</span>
 <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><span class="n">cifti_path</span><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><span class="n">cifti_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="pathlib.Path" class="sphx-glr-backref-module-pathlib sphx-glr-backref-type-py-class"><span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cifti_path</span></a><span class="p">)</span><span class="o">.</span><span class="n">write_bytes</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cifti_path</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># Load and decompose the CIFTI file</span>
-<span class="n">vol</span><span class="p">,</span> <span class="n">surf_left</span><span class="p">,</span> <span class="n">surf_right</span> <span class="o">=</span> <span class="n">decompose_cifti</span><span class="p">(</span><span class="n">cifti_path</span><span class="p">)</span>
+<a href="https://nipy.org/nibabel/reference/nibabel.nifti1.html#nibabel.nifti1.Nifti1Image" title="nibabel.nifti1.Nifti1Image" class="sphx-glr-backref-module-nibabel-nifti1 sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">surf_left</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">surf_right</span></a> <span class="o">=</span> <span class="n">decompose_cifti</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cifti_path</span></a><span class="p">)</span>
 
 <span class="c1"># Print information about the extracted data</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;CIFTI decomposition summary:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- volume: </span><span class="si">{</span><span class="n">vol</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- left cortex surface:  </span><span class="si">{</span><span class="n">surf_left</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- right cortex surface: </span><span class="si">{</span><span class="n">surf_right</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- volume: </span><span class="si">{</span><a href="https://nipy.org/nibabel/reference/nibabel.dataobj_images.html#nibabel.dataobj_images.DataobjImage.shape" title="nibabel.dataobj_images.DataobjImage.shape" class="sphx-glr-backref-module-nibabel-dataobj_images sphx-glr-backref-type-py-property"><span class="n">vol</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- left cortex surface:  </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">surf_left</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- right cortex surface: </span><span class="si">{</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">surf_right</span><span class="o">.</span><span class="n">shape</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.793 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  130 MB</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-io-plot-cifti-py">
 <div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/28b2484c283961af5c7c676ec7fc3297/plot_cifti.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_cifti.ipynb</span></code></a></p>

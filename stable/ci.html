@@ -371,17 +371,6 @@ $<span class="w"> </span>make<span class="w"> </span>html-strict
 </pre></div>
 </div>
 </section>
-<section id="release-documentation-yml">
-<h3>release-documentation.yml<a class="headerlink" href="#release-documentation-yml" title="Link to this heading">¶</a></h3>
-<p>Workflow file: <a class="reference external" href="https://github.com/nilearn/nilearn/blob/main/.github/workflows/release-documentation.yml">release-documentation.yml</a></p>
-<p>Workflow to build doc, and deploy it using the version as a subdomain.</p>
-<p>To run this check locally from the <cite>doc</cite> folder:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sphinxdoc<span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>-p<span class="w"> </span><span class="nv">$MODULE_DIR</span><span class="w"> </span>-n<span class="w"> </span>cookbook<span class="w"> </span>-o<span class="w"> </span><span class="nv">$MODULE_DIR</span>/doc
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$MODULE_DIR</span>/doc
-$<span class="w"> </span>make<span class="w"> </span>html-strict
-</pre></div>
-</div>
-</section>
 <section id="ruff-yml">
 <h3>ruff.yml<a class="headerlink" href="#ruff-yml" title="Link to this heading">¶</a></h3>
 <p>Workflow file: <a class="reference external" href="https://github.com/nilearn/nilearn/blob/main/.github/workflows/ruff.yml">ruff.yml</a></p>
@@ -457,7 +446,6 @@ $<span class="w"> </span>make<span class="w"> </span>html-strict
 <li><a class="reference internal" href="#github-actions-specification">GitHub Actions Specification</a><ul>
 <li><a class="reference internal" href="#codespell-yml">codespell.yml</a></li>
 <li><a class="reference internal" href="#documentation-yml">documentation.yml</a></li>
-<li><a class="reference internal" href="#release-documentation-yml">release-documentation.yml</a></li>
 <li><a class="reference internal" href="#ruff-yml">ruff.yml</a></li>
 </ul>
 </li>

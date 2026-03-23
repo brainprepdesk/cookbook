@@ -32,6 +32,27 @@ These functions rely on NiBabel's CIFTI-2 API.
 
 .. GENERATED FROM PYTHON SOURCE LINES 14-201
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Downloading...
+    Saved: /tmp/sample.dtseries.nii
+    CIFTI decomposition summary:
+    - volume: (48, 64, 48, 1)
+    - left cortex surface:  (32492, 1)
+    - right cortex surface: (32492, 1)
+
+
+
+
+
+
+|
+
 .. code-block:: Python
 
 
@@ -222,7 +243,12 @@ These functions rely on NiBabel's CIFTI-2 API.
     print(f"- left cortex surface:  {surf_left.shape}")
     print(f"- right cortex surface: {surf_right.shape}")
 
-**Estimated memory usage:**  0 MB
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (0 minutes 0.793 seconds)
+
+**Estimated memory usage:**  130 MB
 
 
 .. _sphx_glr_download_auto_examples_io_plot_cifti.py:

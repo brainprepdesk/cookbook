@@ -51,6 +51,12 @@ Import
     from sklearn.decomposition import PCA
 
 
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 31-35
 
 Utils
@@ -312,6 +318,12 @@ Let's define some functions.
         return pairwise_stat_df
 
 
+
+
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 285-289
 
 Data
@@ -348,6 +360,20 @@ Let's define where are stored the data.
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    Downloading...
+    Saved: /tmp/data.zip
+    Unzipped into: /tmp/rsa
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 314-318
 
 Similarities
@@ -369,6 +395,20 @@ Let's compute latent vectors similarities.
     print(f"CVAE salient features similarities: {cmat_cvae_salient.shape}")
     print(f"CVAE background features similarities: {cmat_cvae_background.shape}")
     print(f"VAE features similarities: {cmat_vae.shape}")
+
+
+
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    CVAE salient features similarities: (10, 982, 982)
+    CVAE background features similarities: (10, 982, 982)
+    VAE features similarities: (10, 982, 982)
+
 
 
 
@@ -439,6 +479,41 @@ Let's compute clinical score similarities.
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    ADOS_Total number of outliers measures: 101
+    ADOS_Total features similarities: (369, 369)
+    ADOS_Social number of outliers measures: 125
+    ADOS_Social features similarities: (345, 345)
+    DSMIVTR number of outliers measures: 14
+    DSMIVTR features similarities: (456, 456)
+    AgeAtScan number of outliers measures: 0
+    AgeAtScan features similarities: (470, 470)
+    Sex number of outliers measures: 0
+    Sex features similarities: (470, 470)
+    ScannerID number of outliers measures: 0
+    ScannerID features similarities: (470, 470)
+    ScanSiteID number of outliers measures: 0
+    ScanSiteID features similarities: (470, 470)
+    FIQ number of outliers measures: 42
+    FIQ features similarities: (428, 428)
+    FIQ number of outliers measures: 186
+    FIQ features similarities: (284, 284)
+    FIQ number of outliers measures: 188
+    FIQ features similarities: (282, 282)
+    FIQ number of outliers measures: 401
+    FIQ features similarities: (69, 69)
+    FIQ number of outliers measures: 448
+    FIQ features similarities: (22, 22)
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 391-395
 
 RSA
@@ -472,6 +547,34 @@ Let's fit RSA.
 
 
 
+
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+                   VAE                      ... CVAE_BG                    
+                 count      mean       std  ...   count      mean       std
+    score                                   ...                            
+    ADI_PCA       10.0 -0.001584  0.013910  ...    10.0 -0.010541  0.002227
+    ADOS_PCA      10.0 -0.005150  0.012265  ...    10.0  0.009301  0.002820
+    ADOS_Social   10.0  0.000259  0.013571  ...    10.0  0.007596  0.002528
+    ADOS_Total    10.0 -0.002921  0.008585  ...    10.0  0.008774  0.001647
+    AgeAtScan     10.0  0.028175  0.010767  ...    10.0  0.052890  0.003441
+    DSMIVTR       10.0  0.027082  0.017972  ...    10.0  0.060167  0.006171
+    FIQ           10.0  0.008734  0.015904  ...    10.0  0.017971  0.002810
+    ScanSiteID    10.0  0.059434  0.007955  ...    10.0  0.073665  0.002356
+    ScannerID     10.0  0.044747  0.008686  ...    10.0 -0.014052  0.003137
+    Sex           10.0  0.025973  0.017449  ...    10.0  0.017622  0.006852
+    Vineland_PCA  10.0 -0.002877  0.031596  ...    10.0  0.052315  0.013414
+    WISC_PCA      10.0 -0.027432  0.101222  ...    10.0  0.038064  0.019407
+
+    [12 rows x 9 columns]
+
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 417-421
 
 Display
@@ -501,6 +604,23 @@ Display subject's (dis)similarity matrices.
 
 
 
+
+
+.. image-sg:: /auto_examples/latent/images/sphx_glr_plot_rsa_001.png
+   :alt: SUBJECTS (S) MAT, VAE (1), VAE (2), VAE (3), VAE (4), VAE (5), VAE (6), VAE (7), VAE (8), VAE (9), VAE (10), CVAE SL (1), CVAE SL (2), CVAE SL (3), CVAE SL (4), CVAE SL (5), CVAE SL (6), CVAE SL (7), CVAE SL (8), CVAE SL (9), CVAE SL (10), CVAE BG (1), CVAE BG (2), CVAE BG (3), CVAE BG (4), CVAE BG (5), CVAE BG (6), CVAE BG (7), CVAE BG (8), CVAE BG (9), CVAE BG (10)
+   :srcset: /auto_examples/latent/images/sphx_glr_plot_rsa_001.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    Text(0.5, 0.95, 'SUBJECTS (S) MAT')
+
+
+
 .. GENERATED FROM PYTHON SOURCE LINES 439-440
 
 Display score's (dis)similarity matrices.
@@ -521,6 +641,23 @@ Display score's (dis)similarity matrices.
     plt.subplots_adjust(
         left=None, bottom=None, right=None, top=None, wspace=.5, hspace=.5)
     plt.suptitle("CLINICAL (C) MAT", fontsize=20, y=.95)
+
+
+
+
+
+.. image-sg:: /auto_examples/latent/images/sphx_glr_plot_rsa_002.png
+   :alt: CLINICAL (C) MAT, ADOS TOTAL, ADOS SOCIAL, DSMIVTR, AGEATSCAN, SEX, SCANNERID, SCANSITEID, FIQ, ADOS PCA, ADI PCA, VINELAND PCA, WISC PCA
+   :srcset: /auto_examples/latent/images/sphx_glr_plot_rsa_002.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+
+    Text(0.5, 0.95, 'CLINICAL (C) MAT')
 
 
 
@@ -556,7 +693,227 @@ Display Kendall tau statistics.
 
     plt.show()
 
-**Estimated memory usage:**  0 MB
+
+
+.. image-sg:: /auto_examples/latent/images/sphx_glr_plot_rsa_003.png
+   :alt: RSA RESULTS, ADOS_TOTAL, ADOS_SOCIAL, DSMIVTR, AGEATSCAN, SEX, SCANNERID, SCANSITEID, FIQ
+   :srcset: /auto_examples/latent/images/sphx_glr_plot_rsa_003.png
+   :class: sphx-glr-single-img
+
+
+.. rst-class:: sphx-glr-script-out
+
+ .. code-block:: none
+
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    ADOS_Total VAE >  VAE | t(9) = 0.00 p = 1.00
+    ADOS_Total VAE >  CVAE_SL | t(9) = -0.65 p = 0.52
+    ADOS_Total VAE >  CVAE_BG | t(9) = -4.23 p < .001
+    ADOS_Total CVAE_SL >  VAE | t(9) = 0.65 p = 0.52
+    ADOS_Total CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    ADOS_Total CVAE_SL >  CVAE_BG | t(9) = -11.04 p < .001
+    ADOS_Total CVAE_BG >  VAE | t(9) = 4.23 p < .001
+    ADOS_Total CVAE_BG >  CVAE_SL | t(9) = 11.04 p < .001
+    ADOS_Total CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    CVAE_SL vs. CVAE_BG: ***
+    VAE vs. CVAE_BG: **
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    ADOS_Social VAE >  VAE | t(9) = 0.00 p = 1.00
+    ADOS_Social VAE >  CVAE_SL | t(9) = 0.05 p = 0.96
+    ADOS_Social VAE >  CVAE_BG | t(9) = -1.68 p = 0.11
+    ADOS_Social CVAE_SL >  VAE | t(9) = -0.05 p = 0.96
+    ADOS_Social CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    ADOS_Social CVAE_SL >  CVAE_BG | t(9) = -7.18 p < .001
+    ADOS_Social CVAE_BG >  VAE | t(9) = 1.68 p = 0.11
+    ADOS_Social CVAE_BG >  CVAE_SL | t(9) = 7.18 p < .001
+    ADOS_Social CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    CVAE_SL vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    DSMIVTR VAE >  VAE | t(9) = 0.00 p = 1.00
+    DSMIVTR VAE >  CVAE_SL | t(9) = 1.37 p = 0.19
+    DSMIVTR VAE >  CVAE_BG | t(9) = -5.51 p < .001
+    DSMIVTR CVAE_SL >  VAE | t(9) = -1.37 p = 0.19
+    DSMIVTR CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    DSMIVTR CVAE_SL >  CVAE_BG | t(9) = -19.86 p < .001
+    DSMIVTR CVAE_BG >  VAE | t(9) = 5.51 p < .001
+    DSMIVTR CVAE_BG >  CVAE_SL | t(9) = 19.86 p < .001
+    DSMIVTR CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    CVAE_SL vs. CVAE_BG: ***
+    VAE vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    AgeAtScan VAE >  VAE | t(9) = 0.00 p = 1.00
+    AgeAtScan VAE >  CVAE_SL | t(9) = -15.72 p < .001
+    AgeAtScan VAE >  CVAE_BG | t(9) = -6.91 p < .001
+    AgeAtScan CVAE_SL >  VAE | t(9) = 15.72 p < .001
+    AgeAtScan CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    AgeAtScan CVAE_SL >  CVAE_BG | t(9) = 21.46 p < .001
+    AgeAtScan CVAE_BG >  VAE | t(9) = 6.91 p < .001
+    AgeAtScan CVAE_BG >  CVAE_SL | t(9) = -21.46 p < .001
+    AgeAtScan CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    VAE vs. CVAE_SL: ***
+    CVAE_SL vs. CVAE_BG: ***
+    VAE vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    Sex VAE >  VAE | t(9) = 0.00 p = 1.00
+    Sex VAE >  CVAE_SL | t(9) = -3.61 p = 0.00
+    Sex VAE >  CVAE_BG | t(9) = 1.41 p = 0.18
+    Sex CVAE_SL >  VAE | t(9) = 3.61 p = 0.00
+    Sex CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    Sex CVAE_SL >  CVAE_BG | t(9) = 11.37 p < .001
+    Sex CVAE_BG >  VAE | t(9) = -1.41 p = 0.18
+    Sex CVAE_BG >  CVAE_SL | t(9) = -11.37 p < .001
+    Sex CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    VAE vs. CVAE_SL: *
+    CVAE_SL vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    ScannerID VAE >  VAE | t(9) = 0.00 p = 1.00
+    ScannerID VAE >  CVAE_SL | t(9) = -23.33 p < .001
+    ScannerID VAE >  CVAE_BG | t(9) = 20.13 p < .001
+    ScannerID CVAE_SL >  VAE | t(9) = 23.33 p < .001
+    ScannerID CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    ScannerID CVAE_SL >  CVAE_BG | t(9) = 114.23 p < .001
+    ScannerID CVAE_BG >  VAE | t(9) = -20.13 p < .001
+    ScannerID CVAE_BG >  CVAE_SL | t(9) = -114.23 p < .001
+    ScannerID CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    VAE vs. CVAE_SL: ***
+    CVAE_SL vs. CVAE_BG: ***
+    VAE vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    ScanSiteID VAE >  VAE | t(9) = 0.00 p = 1.00
+    ScanSiteID VAE >  CVAE_SL | t(9) = -63.88 p < .001
+    ScanSiteID VAE >  CVAE_BG | t(9) = -5.42 p < .001
+    ScanSiteID CVAE_SL >  VAE | t(9) = 63.88 p < .001
+    ScanSiteID CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    ScanSiteID CVAE_SL >  CVAE_BG | t(9) = 185.14 p < .001
+    ScanSiteID CVAE_BG >  VAE | t(9) = 5.42 p < .001
+    ScanSiteID CVAE_BG >  CVAE_SL | t(9) = -185.14 p < .001
+    ScanSiteID CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    VAE vs. CVAE_SL: ***
+    CVAE_SL vs. CVAE_BG: ***
+    VAE vs. CVAE_BG: ***
+    /home/runner/work/cookbook/cookbook/examples/latent/plot_rsa.py:190: FutureWarning: 
+
+    Passing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `x` variable to `hue` and set `legend=False` for the same effect.
+
+      plot = sns.barplot(data=data_df,
+    FIQ VAE >  VAE | t(9) = 0.00 p = 1.00
+    FIQ VAE >  CVAE_SL | t(9) = 0.59 p = 0.56
+    FIQ VAE >  CVAE_BG | t(9) = -1.81 p = 0.09
+    FIQ CVAE_SL >  VAE | t(9) = -0.59 p = 0.56
+    FIQ CVAE_SL >  CVAE_SL | t(9) = 0.00 p = 1.00
+    FIQ CVAE_SL >  CVAE_BG | t(9) = -12.72 p < .001
+    FIQ CVAE_BG >  VAE | t(9) = 1.81 p = 0.09
+    FIQ CVAE_BG >  CVAE_SL | t(9) = 12.72 p < .001
+    FIQ CVAE_BG >  CVAE_BG | t(9) = 0.00 p = 1.00
+    p-value annotation legend:
+          ns: 5.00e-02 < p <= 1.00e+00
+           *: 1.00e-02 < p <= 5.00e-02
+          **: 1.00e-03 < p <= 1.00e-02
+         ***: 1.00e-04 < p <= 1.00e-03
+        ****: p <= 1.00e-04
+
+    CVAE_SL vs. CVAE_BG: ***
+                                             pair       tval          pval
+    0           qname-ADOS_Total_src-VAE_dest-VAE   0.000000  1.000000e+00
+    1       qname-ADOS_Total_src-VAE_dest-CVAE-SL  -0.651633  5.228717e-01
+    2       qname-ADOS_Total_src-VAE_dest-CVAE-BG  -4.230940  5.024791e-04
+    3       qname-ADOS_Total_src-CVAE-SL_dest-VAE   0.651633  5.228717e-01
+    4   qname-ADOS_Total_src-CVAE-SL_dest-CVAE-SL   0.000000  1.000000e+00
+    ..                                        ...        ...           ...
+    4          qname-FIQ_src-CVAE-SL_dest-CVAE-SL   0.000000  1.000000e+00
+    5          qname-FIQ_src-CVAE-SL_dest-CVAE-BG -12.716806  1.972201e-10
+    6              qname-FIQ_src-CVAE-BG_dest-VAE   1.808480  8.726890e-02
+    7          qname-FIQ_src-CVAE-BG_dest-CVAE-SL  12.716806  1.972201e-10
+    8          qname-FIQ_src-CVAE-BG_dest-CVAE-BG   0.000000  1.000000e+00
+
+    [72 rows x 3 columns]
+
+
+
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (1 minutes 45.794 seconds)
+
+**Estimated memory usage:**  5217 MB
 
 
 .. _sphx_glr_download_auto_examples_latent_plot_rsa.py:

@@ -59,22 +59,6 @@ To run this check locally from the `doc` folder:
   $ make html-strict
 
 
-release-documentation.yml
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Workflow file: `release-documentation.yml <https://github.com/nilearn/nilearn/blob/main/.github/workflows/release-documentation.yml>`_
-
-Workflow to build doc, and deploy it using the version as a subdomain.
-
-To run this check locally from the `doc` folder:
-
-.. code-block:: bash
-
-  $ sphinxdoc -v 2 -p $MODULE_DIR -n cookbook -o $MODULE_DIR/doc
-  $ cd $MODULE_DIR/doc
-  $ make html-strict
-
-
 ruff.yml
 ^^^^^^^^
 
