@@ -55,9 +55,9 @@ doc = [
 ]
 
 [project.urls]
-Development = "https://github.com/neurospin-projects/cookbook"
-issues = "https://github.com/neurospin-projects/cookbook/issues"
-homepage = "https://neurospin-projects.github.io/cookbook/stable"
+Development = "https://github.com/brainprepdesk/cookbook"
+issues = "https://github.com/brainprepdesk/cookbook/issues"
+homepage = "https://brainprepdesk.github.io/cookbook/stable"
 
 [tool.setuptools]
 include-package-data = true
